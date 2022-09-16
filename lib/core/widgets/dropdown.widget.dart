@@ -10,13 +10,13 @@ class DropdwonNewWidget extends StatelessWidget {
     final controller = Modular.get<FormController>();
 
     final List<String> _dropdownValuesage = [
-      'pending',
-      'eligible',
-      'notEligible',
-      'todos',
+      'Pendente',
+      'Elegível',
+      'Não Elegível',
+      'Todos',
     ];
     return SizedBox(
-      width: 130,
+      width: MediaQuery.of(context).size.width * 0.33,
       height: 38,
       child: DropdownButtonFormField(
         isDense: true,
@@ -27,11 +27,11 @@ class DropdwonNewWidget extends StatelessWidget {
           fillColor: ThemeData().primaryColor,
         ),
         iconEnabledColor: Colors.white,
-        style: const TextStyle(fontSize: 16, color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         dropdownColor: ThemeData().primaryColor,
         value: _dropdownValuesage[3],
         onChanged: (newvalue) {
-          controller.getEligibilityStatus(newvalue.toString());
+          controller.dropdownValuesage(newvalue.toString());
         },
         items: _dropdownValuesage.map((value) {
           return DropdownMenuItem(

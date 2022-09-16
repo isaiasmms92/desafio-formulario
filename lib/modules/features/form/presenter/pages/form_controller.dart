@@ -33,6 +33,29 @@ class FormController extends ChangeNotifier {
       ? bankAccountName.split(' ').map((l) => l[0]).take(2).join()
       : '';
 
+  void dropdownValuesage(String newvalue) {
+    if (newvalue == 'Pendente') {
+      getEligibilityStatus('pending');
+    } else if (newvalue == 'Elegível') {
+      getEligibilityStatus('eligible');
+    } else if (newvalue == 'Não Elegível') {
+      getEligibilityStatus('notEligible');
+    } else {
+      getAll();
+    }
+  }
+
+  String status(String status) {
+    if (status == 'pending') {
+      return 'Pendente';
+    } else if (status == 'eligible') {
+      return 'Elegível';
+    } else if (status == 'notEligible') {
+      return 'Não Elegível';
+    }
+    return '';
+  }
+
   Future<void> addUser(int i) async {
     DocumentReference<Map<String, dynamic>> users =
         FirebaseFirestore.instance.collection('users').doc(forms[i].uid);

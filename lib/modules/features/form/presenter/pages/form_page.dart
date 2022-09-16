@@ -44,8 +44,9 @@ class _FormPageState extends State<FormPage> {
                       controller.postAll();
                       controller.getAll();
                     },
-                    child: const Text('Atualizar Formularios',
-                        style: TextStyle(fontSize: 16))),
+                    child: const Text(
+                      'Atualizar Formularios',
+                    )),
                 const DropdwonNewWidget(),
               ],
             ),

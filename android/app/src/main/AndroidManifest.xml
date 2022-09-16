@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.desa111">
+    package="com.example.DesafioFormulario">
    <application
-        android:label="desa111"
+        android:label="Desafio Formulario"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
