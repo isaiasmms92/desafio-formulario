@@ -22,8 +22,10 @@ class FormDataSourceFirebase implements FormDataSource {
     const path = 'users';
 
     final collection = firestore.collection(path);
-    final collectionReference =
-        await collection.where('eligibilityStatus', isEqualTo: query).get();
+    final collectionReference = query != 'todos'
+        ? await collection.where('eligibilityStatus', isEqualTo: query).get()
+        : await collection.get();
+
     final documents = collectionReference.docs.map((e) => e.data()).toList();
 
     return documents;
